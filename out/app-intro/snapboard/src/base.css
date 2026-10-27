@@ -1,0 +1,20 @@
+@font-face { font-family: "Pretendard"; font-weight: 400; src: url("../../../../src/assets/fonts/Pretendard-Regular.otf") format("opentype"); }
+@font-face { font-family: "Pretendard"; font-weight: 600; src: url("../../../../src/assets/fonts/Pretendard-SemiBold.otf") format("opentype"); }
+@font-face { font-family: "Pretendard"; font-weight: 700; src: url("../../../../src/assets/fonts/Pretendard-Bold.otf") format("opentype"); }
+:root {
+  --video-bg: #18191b; --video-bg-end: #18191b;
+  --video-phone-body: #000000; --video-phone-edge: #75777c;
+  --video-part-scale: 2.8;
+  --gap: 90px; /* space-large 32 x 2.8 */
+  --color-bg:#ffffff; --color-text:#18191b; --color-text-muted:#75777c; --color-primary:#3759de; --color-on-primary:#ffffff;
+  --color-primary-subtle:#edf1ff; --color-border:#e9eaed; --color-success:#247a51; --color-character-bg:#e3f2fd;
+  --color-illustration-dce2f2:#dce2f2; --color-illustration-ebeef5:#ebeef5; --color-illustration-000000:#000000;
+}
+html, body { margin:0; width:1920px; height:1080px; background:var(--video-bg); overflow:hidden; font-family:"Pretendard",sans-serif; }
+body { display:flex; align-items:center; justify-content:center; gap:var(--gap); }
+.phone { box-sizing:content-box; width:429px; height:928px; padding:14px; border:2px solid var(--video-phone-edge); border-radius:58px; background:var(--video-phone-body); flex:none; }
+.phone img { display:block; width:429px; height:928px; border-radius:44px; }
+.part { zoom:var(--video-part-scale); flex:none; }
+.part p { margin:0; }
+/* 폰 위치는 장면 1~3에서 같다: 폰 461 + gap 90 + mission-card 980 묶음을 가운데 맞춘 왼쪽 시작점 */
+body.with-phone { justify-content:flex-start; padding-left:calc((1920px - 461px - 90px - 980px)/2); box-sizing:border-box; }

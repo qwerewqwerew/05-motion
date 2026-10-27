@@ -1,0 +1,104 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>app-intro</title><style>@font-face { font-family: "Pretendard"; font-weight: 400; src: url("../../../src/assets/fonts/Pretendard-Regular.otf") format("opentype"); }
+@font-face { font-family: "Pretendard"; font-weight: 600; src: url("../../../src/assets/fonts/Pretendard-SemiBold.otf") format("opentype"); }
+@font-face { font-family: "Pretendard"; font-weight: 700; src: url("../../../src/assets/fonts/Pretendard-Bold.otf") format("opentype"); }
+:root {
+  --video-bg: #18191b; --video-bg-end: #18191b;
+  --video-phone-body: #000000; --video-phone-edge: #75777c;
+  --video-part-scale: 2.8;
+  --gap: 90px; /* space-large 32 x 2.8 */
+  --color-bg:#ffffff; --color-text:#18191b; --color-text-muted:#75777c; --color-primary:#3759de; --color-on-primary:#ffffff;
+  --color-primary-subtle:#edf1ff; --color-border:#e9eaed; --color-success:#247a51; --color-character-bg:#e3f2fd;
+  --color-illustration-dce2f2:#dce2f2; --color-illustration-ebeef5:#ebeef5; --color-illustration-000000:#000000;
+}
+html, body { margin:0; width:1920px; height:1080px; background:var(--video-bg); overflow:hidden; font-family:"Pretendard",sans-serif; }
+.scene { position:absolute; left:0; top:0; width:1920px; height:1080px; display:flex; align-items:center; justify-content:center; gap:var(--gap); opacity:0; }
+.phone { box-sizing:content-box; width:429px; height:928px; padding:14px; border:2px solid var(--video-phone-edge); border-radius:58px; background:var(--video-phone-body); flex:none; }
+.phone img { display:block; width:429px; height:928px; border-radius:44px; }
+.part { zoom:var(--video-part-scale); flex:none; }
+.part p { margin:0; }
+/* 폰 위치는 장면 1~3에서 같다: 폰 461 + gap 90 + mission-card 980 묶음을 가운데 맞춘 왼쪽 시작점 */
+.scene.with-phone { justify-content:flex-start; padding-left:calc((1920px - 461px - 90px - 980px)/2); box-sizing:border-box; }
+
+
+#mission-card{box-sizing:border-box;width:350px;padding:16px;display:flex;flex-direction:column;gap:12px;overflow:hidden;border:1px solid var(--color-illustration-dce2f2);border-radius:12px;background:var(--color-bg)}
+#mission-card .cover{width:318px;display:flex;align-items:flex-start;gap:12px;overflow:hidden}
+#mission-card .copy{width:218px;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+.caption{font-weight:400;font-size:12px;line-height:16px;white-space:pre-wrap}
+.eyebrow{color:var(--color-primary)}
+.title{font-weight:700;font-size:22px;line-height:28px;color:var(--color-text)}
+.character{flex:none;width:88px;height:96px;overflow:hidden;background:var(--color-character-bg)}
+.character img{display:block;width:88px;height:96px;object-fit:contain}
+.deliverables{width:318px;color:var(--color-text-muted)}
+.progress{width:318px;display:flex;flex-direction:column;gap:8px}
+.progress-labels{display:flex}
+#mission-card-progress-text{width:190px;color:var(--color-primary)}
+.due{width:128px;color:var(--color-text-muted);text-align:right}
+.track{position:relative;width:318px;height:3px;overflow:hidden;border-radius:1.5px;background:var(--color-illustration-ebeef5)}
+#mission-card-progress-fill{--progress:0.5;position:absolute;left:0;top:0;width:calc(318px*var(--progress));height:3px;border-radius:1.5px;background:var(--color-primary)}
+.button{box-sizing:border-box;width:318px;padding:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:8px;background:var(--color-primary)}
+.button p{flex:1 0 0;font-weight:600;font-size:14px;line-height:20px;color:var(--color-on-primary);text-align:center}
+
+#badge-approved{box-sizing:border-box;width:108px;padding:8px;overflow:hidden;border-radius:8px;background:var(--color-primary-subtle)}
+#badge-approved .label{width:92px;font-weight:400;font-size:12px;line-height:16px;color:var(--color-success)}
+
+#stat-card{box-sizing:border-box;width:350px;padding:20px;display:flex;flex-direction:column;gap:12px;overflow:hidden;border-top:1px solid var(--color-border);border-radius:12px;background:var(--color-bg);color:var(--color-text);white-space:pre-wrap}
+#stat-card p{width:310px}
+.heading{font-weight:700;font-size:20px;line-height:28px}
+.counts{font-weight:600;font-size:14px;line-height:20px}
+
+#s4{background:var(--video-bg-end)}
+#brand-icon{box-sizing:border-box;width:98px;padding:16px;display:flex;align-items:center;border-radius:12px;background:var(--color-illustration-000000);outline:calc(2px/var(--video-part-scale)) solid var(--video-phone-edge)}
+#brand-icon img{display:block;flex:none;width:66px;height:66px}
+</style></head><body>
+<div class="scene with-phone" id="s1">
+<div class="phone"><img src="../../../src/screens/03-mission.png" alt=""></div>
+<div class="part"><div id="mission-card">
+ <div class="cover"><div class="copy"><p class="caption eyebrow">이번 달 미션  ·  D–12</p><p class="title">반복 업무를 줄이는<br>AI 자동화</p></div>
+ <div class="character"><img src="../../../src/assets/perdi-flag.png" alt=""></div></div>
+ <p class="caption deliverables">자동화 자산 1개 + 실제 적용 사례 1개</p>
+ <div class="progress"><div class="progress-labels"><p id="mission-card-progress-text" class="caption">50% · 2/4 단계 완료</p><p class="caption due">9월 30일 마감</p></div>
+ <div class="track"><div id="mission-card-progress-fill"></div></div></div>
+ <div class="button"><p>적용 사례 정리하기 →</p></div></div></div>
+</div>
+<div class="scene with-phone" id="s2">
+<div class="phone"><img src="../../../src/screens/04-approved.png" alt=""></div>
+<div class="part"><div id="badge-approved"><p class="label">승인 완료</p></div></div>
+</div>
+<div class="scene with-phone" id="s3">
+<div class="phone"><img src="../../../src/screens/05-assets.png" alt=""></div>
+<div class="part"><div id="stat-card"><p class="heading">이번 달 수익  ₩<span id="stat-card-amount">29,700</span></p><p class="counts">전체 4개     /     검수 중 1개     /     판매 중 1개</p></div></div>
+</div>
+<div class="scene" id="s4">
+<div class="part"><div id="brand-icon"><img src="../../../src/assets/logo-symbol-white.svg" width="100" height="100" alt="Huddling Club"></div></div>
+</div>
+<script>
+const E={standard:[.4,.14,.3,1],entrance:[0,0,.3,1],exit:[.4,.14,1,1],spring:[.34,1.56,.64,1]};
+function bez(p,x){const[a,b,c,d]=p;const f=(t,m,n)=>3*(1-t)*(1-t)*t*m+3*(1-t)*t*t*n+t*t*t;
+ let lo=0,hi=1,t=x;for(let i=0;i<40;i++){t=(lo+hi)/2;const v=f(t,a,c);if(v<x)lo=t;else hi=t}return f(t,b,d)}
+const prog=(t,s,len)=>Math.min(1,Math.max(0,(t-s)/len));
+const ease=(n,t,s,len)=>bez(E[n],prog(t,s,len));
+// 길이(f): enter 7, exit 5, emphasis 12, stagger 3, hold-short 15 (motion.md)
+const SC=[{id:'s1',s:0,n:42},{id:'s2',s:42,n:39},{id:'s3',s:81,n:42},{id:'s4',s:123,n:27}];
+const $=id=>document.getElementById(id);
+function setFrame(f){
+ for(const sc of SC){
+  const el=$(sc.id);const t=f-sc.s;
+  if(t<0||t>=sc.n){el.style.opacity=0;el.style.visibility='hidden';continue}
+  el.style.visibility='visible';el.style.opacity=1;
+  const ph=el.querySelector('.phone'),pt=el.querySelector('.part');
+  const out=1-ease('exit',t,sc.n-5,5);
+  const inP=ease('entrance',t,0,7);
+  if(ph)ph.style.opacity=inP*out;
+  if(sc.id==='s1'){pt.style.opacity=ease('entrance',t,3,7)*out;
+    $('mission-card-progress-fill').style.setProperty('--progress',0.5*ease('standard',t,10,12));}
+  if(sc.id==='s2'){const e=ease('spring',t,7,12);
+    const im=ph.querySelector('img');im.style.transform='scale('+e+')';
+    pt.style.transform='scale('+e+')';pt.style.opacity=out;
+    ph.style.opacity=inP*out; pt.style.opacity=t>=7?out:0;}
+  if(sc.id==='s3'){pt.style.opacity=ease('entrance',t,3,7)*out;
+    const v=Math.round(29700*ease('standard',t,10,12));$('stat-card-amount').textContent=v.toLocaleString('en-US');}
+  if(sc.id==='s4'){pt.style.opacity=inP*out;}
+ }
+ return true;}
+window.setFrame=setFrame;
+</script></body></html>

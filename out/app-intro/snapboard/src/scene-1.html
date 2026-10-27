@@ -1,0 +1,29 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><title>scene-1</title>
+<style>
+#mission-card{box-sizing:border-box;width:350px;padding:16px;display:flex;flex-direction:column;gap:12px;overflow:hidden;border:1px solid var(--color-illustration-dce2f2);border-radius:12px;background:var(--color-bg)}
+#mission-card .cover{width:318px;display:flex;align-items:flex-start;gap:12px;overflow:hidden}
+#mission-card .copy{width:218px;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+.caption{font-weight:400;font-size:12px;line-height:16px;white-space:pre-wrap}
+.eyebrow{color:var(--color-primary)}
+.title{font-weight:700;font-size:22px;line-height:28px;color:var(--color-text)}
+.character{flex:none;width:88px;height:96px;overflow:hidden;background:var(--color-character-bg)}
+.character img{display:block;width:88px;height:96px;object-fit:contain}
+.deliverables{width:318px;color:var(--color-text-muted)}
+.progress{width:318px;display:flex;flex-direction:column;gap:8px}
+.progress-labels{display:flex}
+#mission-card-progress-text{width:190px;color:var(--color-primary)}
+.due{width:128px;color:var(--color-text-muted);text-align:right}
+.track{position:relative;width:318px;height:3px;overflow:hidden;border-radius:1.5px;background:var(--color-illustration-ebeef5)}
+#mission-card-progress-fill{--progress:0.5;position:absolute;left:0;top:0;width:calc(318px*var(--progress));height:3px;border-radius:1.5px;background:var(--color-primary)}
+.button{box-sizing:border-box;width:318px;padding:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:8px;background:var(--color-primary)}
+.button p{flex:1 0 0;font-weight:600;font-size:14px;line-height:20px;color:var(--color-on-primary);text-align:center}
+</style></head><body class="with-phone">
+<div class="phone"><img src="../../../../src/screens/03-mission.png" alt=""></div>
+<div class="part"><div id="mission-card">
+ <div class="cover"><div class="copy"><p class="caption eyebrow">이번 달 미션  ·  D–12</p><p class="title">반복 업무를 줄이는<br>AI 자동화</p></div>
+ <div class="character"><img src="../../../../src/assets/perdi-flag.png" alt=""></div></div>
+ <p class="caption deliverables">자동화 자산 1개 + 실제 적용 사례 1개</p>
+ <div class="progress"><div class="progress-labels"><p id="mission-card-progress-text" class="caption">50% · 2/4 단계 완료</p><p class="caption due">9월 30일 마감</p></div>
+ <div class="track"><div id="mission-card-progress-fill"></div></div></div>
+ <div class="button"><p>적용 사례 정리하기 →</p></div></div></div>
+</body></html>
